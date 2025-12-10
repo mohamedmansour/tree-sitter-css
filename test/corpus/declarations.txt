@@ -20,6 +20,55 @@ a {
           (integer_value)
           (float_value)))))))
 
+============================
+attr() function with type syntax
+============================
+
+.foo {
+  --x: attr(foo type(<number>), 0);
+  width: attr(data-width <length>, 100px);
+  content: attr(data-text <string>);
+  color: attr(data-color <color>, blue);
+  opacity: attr(data-opacity <percentage>, 50%);
+}
+
+---
+
+(stylesheet
+  (rule_set
+    (selectors (class_selector (class_name (identifier))))
+    (block
+      (declaration
+        (property_name)
+        (call_expression (function_name) (arguments
+          (plain_value)
+          (call_expression (function_name) (arguments
+            (angle_bracket_value (type_name))))
+          (integer_value))))
+      (declaration
+        (property_name)
+        (call_expression (function_name) (arguments
+          (plain_value)
+          (angle_bracket_value (type_name))
+          (integer_value (unit)))))
+      (declaration
+        (property_name)
+        (call_expression (function_name) (arguments
+          (plain_value)
+          (angle_bracket_value (type_name)))))
+      (declaration
+        (property_name)
+        (call_expression (function_name) (arguments
+          (plain_value)
+          (angle_bracket_value (type_name))
+          (plain_value))))
+      (declaration
+        (property_name)
+        (call_expression (function_name) (arguments
+          (plain_value)
+          (angle_bracket_value (type_name))
+          (integer_value (unit))))))))
+
 =============================================
 Calls where each argument has multiple values
 =============================================

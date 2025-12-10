@@ -67,6 +67,21 @@
     }
   },
   {
+    "type": "angle_bracket_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "type_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "arguments",
     "named": true,
     "fields": {},
@@ -76,6 +91,10 @@
       "types": [
         {
           "type": "adjacent_sibling_selector",
+          "named": true
+        },
+        {
+          "type": "angle_bracket_value",
           "named": true
         },
         {
@@ -2159,6 +2178,10 @@
     "named": false
   },
   {
+    "type": "<",
+    "named": false
+  },
+  {
     "type": "=",
     "named": false
   },
@@ -2311,6 +2334,10 @@
   {
     "type": "to",
     "named": false
+  },
+  {
+    "type": "type_name",
+    "named": true
   },
   {
     "type": "unit",

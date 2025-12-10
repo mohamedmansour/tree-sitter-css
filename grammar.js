@@ -444,6 +444,12 @@ export default grammar({
       ']',
     ),
 
+    angle_bracket_value: $ => seq(
+      '<',
+      alias($.identifier, $.type_name),
+      '>',
+    ),
+
     call_expression: $ => seq(
       alias($.identifier, $.function_name),
       $.arguments,
@@ -457,7 +463,10 @@ export default grammar({
 
     arguments: $ => seq(
       token.immediate('('),
-      sep(choice(',', ';'), repeat1($._value)),
+      sep(choice(',', ';'), repeat1(choice(
+        $._value,
+        $.angle_bracket_value,
+      ))),
       ')',
     ),
 
